@@ -257,7 +257,7 @@
   </div>
 
   <script>
-    const DESTINO = "http://prof-mr.site/index.html"; // ex: "https://meusite.com"
+    const DESTINO = "https://prof-mr.site/index.html"; // ex: "https://meusite.com"
     const REDIRECT_DELAY = 2200;
 
     const output = document.getElementById("output");
@@ -399,7 +399,7 @@
       redirectMsg.classList.add("show");
 
       setTimeout(() => {
-        if (DESTINO && DESTINO !== "SEU_LINK_AQUI") {
+        if (DESTINO && DESTINO !== "https://prof-mr.site") {
           window.location.href = DESTINO;
         }
       }, REDIRECT_DELAY);
