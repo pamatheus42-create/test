@@ -3,1069 +3,217 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Docs de Matemática para Professores</title>
+  <title>Math Docs Professor</title>
   <style>
-    :root {
-      --bg: #f5f7fb;
-      --panel: #ffffff;
-      --panel-2: #eef3ff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --ok: #059669;
-      --warn: #d97706;
-      --danger: #dc2626;
-      --border: #dbe3f0;
-      --shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
-      --radius: 18px;
+    :root{
+      --bg:#f4f7fb;--card:#fff;--line:#dbe4f0;--text:#1f2937;--muted:#64748b;--pri:#2563eb;
     }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
-      color: white;
-      padding: 28px 18px;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .header-wrap {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      justify-content: space-between;
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-
-    .brand p {
-      margin: 6px 0 0;
-      opacity: 0.92;
-    }
-
-    .top-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    button, select, input {
-      font: inherit;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 12px;
-      padding: 10px 16px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: white;
-      color: var(--primary-dark);
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-soft {
-      background: rgba(255,255,255,0.16);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.22);
-    }
-
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 310px 1fr;
-      gap: 20px;
-    }
-
-    aside, .content-card, .tool-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    aside {
-      padding: 18px;
-      position: sticky;
-      top: 108px;
-      height: fit-content;
-    }
-
-    .search {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      margin-bottom: 14px;
-      background: #fbfdff;
-    }
-
-    .nav-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 18px 0 8px;
-      letter-spacing: .06em;
-    }
-
-    .nav-list {
-      display: grid;
-      gap: 8px;
-    }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #f9fbff;
-      border: 1px solid transparent;
-      transition: .2s ease;
-      display: block;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      border-color: #bfd2ff;
-      background: #edf4ff;
-      color: var(--primary-dark);
-    }
-
-    .content {
-      display: grid;
-      gap: 18px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #eff6ff, #eef2ff);
-      border: 1px solid #cfe0ff;
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-
-    .hero h2 {
-      margin-top: 0;
-      font-size: 1.9rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .mini-box {
-      background: rgba(255,255,255,0.9);
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid #d9e5ff;
-    }
-
-    .content-card {
-      padding: 22px;
-      scroll-margin-top: 120px;
-    }
-
-    .content-card h3 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      color: var(--primary-dark);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0 18px;
-    }
-
-    .tag {
-      background: var(--panel-2);
-      color: var(--primary-dark);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: .9rem;
-      border: 1px solid #d8e5ff;
-    }
-
-    .two-col, .three-col, .tool-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .two-col { grid-template-columns: repeat(2, 1fr); }
-    .three-col { grid-template-columns: repeat(3, 1fr); }
-    .tool-grid { grid-template-columns: repeat(2, 1fr); }
-
-    .box {
-      background: #fafcff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .box h4 {
-      margin: 0 0 10px;
-      color: var(--primary-dark);
-    }
-
-    ul {
-      padding-left: 20px;
-      margin: 8px 0;
-    }
-
-    li { margin-bottom: 8px; }
-
-    .formula {
-      background: #0f172a;
-      color: #e5eefc;
-      padding: 14px;
-      border-radius: 14px;
-      font-family: "Courier New", monospace;
-      overflow-x: auto;
-      margin-top: 10px;
-      white-space: pre-wrap;
-    }
-
-    .tool-card {
-      padding: 18px;
-    }
-
-    .tool-card h4 {
-      margin-top: 0;
-      color: var(--primary-dark);
-    }
-
-    .tool-card textarea, .tool-card input, .tool-card select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 10px;
-      background: #fbfdff;
-    }
-
-    .result {
-      padding: 14px;
-      border-radius: 14px;
-      background: #f8fbff;
-      border: 1px solid var(--border);
-      min-height: 60px;
-      white-space: pre-wrap;
-    }
-
-    .editor {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      background: white;
-    }
-
-    .editor-toolbar {
-      background: #f4f8ff;
-      border-bottom: 1px solid var(--border);
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .editor-toolbar button {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-
-    .doc-area {
-      min-height: 280px;
-      padding: 18px;
-      outline: none;
-      line-height: 1.6;
-    }
-
-    .doc-area[contenteditable="true"]:empty:before {
-      content: "Digite seu planejamento, atividade, avaliação, roteiro de aula ou anotações de matemática...";
-      color: #94a3b8;
-    }
-
-    .badge-ok {
-      color: var(--ok);
-      font-weight: bold;
-    }
-
-    .badge-warn {
-      color: var(--warn);
-      font-weight: bold;
-    }
-
-    .status {
-      margin-top: 10px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #f8fbff;
-      display: none;
-    }
-
-    .status.show { display: block; }
-    .status.success { border-color: #b7e4cf; background: #f0fdf4; color: #166534; }
-    .status.warning { border-color: #fde68a; background: #fffbeb; color: #92400e; }
-    .status.error { border-color: #fecaca; background: #fef2f2; color: #991b1b; }
-
-    .tests {
-      margin-top: 12px;
-      font-size: 0.92rem;
-      color: var(--muted);
-      white-space: pre-wrap;
-      background: #f8fbff;
-      border: 1px dashed var(--border);
-      padding: 12px;
-      border-radius: 12px;
-    }
-
-    .print-frame {
-      position: fixed;
-      width: 0;
-      height: 0;
-      border: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    footer {
-      max-width: 1400px;
-      margin: 18px auto 40px;
-      padding: 0 20px;
-      color: var(--muted);
-    }
-
-    @media print {
-      body * {
-        visibility: hidden !important;
-      }
-      .print-only, .print-only * {
-        visibility: visible !important;
-      }
-      .print-only {
-        position: absolute;
-        inset: 0;
-        background: white;
-      }
-    }
-
-    @media (max-width: 1100px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-      aside {
-        position: static;
-      }
-      .hero-grid, .two-col, .three-col, .tool-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .hero-grid, .two-col, .three-col, .tool-grid {
-        grid-template-columns: 1fr;
-      }
-      .brand h1 { font-size: 1.4rem; }
-      header { position: static; }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+    header{background:linear-gradient(135deg,#2563eb,#4f46e5);color:#fff;padding:18px 14px;position:sticky;top:0;z-index:10}
+    .top{max-width:1100px;margin:auto;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    h1,h2,h3,p{margin:0}
+    main{max-width:1100px;margin:16px auto;padding:0 14px;display:grid;grid-template-columns:260px 1fr;gap:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+    aside{position:sticky;top:88px;height:fit-content}
+    .menu{display:grid;gap:8px}
+    .menu a{text-decoration:none;color:var(--text);padding:10px 12px;border-radius:12px;background:#f8fbff;border:1px solid transparent}
+    .menu a:hover{background:#edf4ff;border-color:#bfd2ff;color:var(--pri)}
+    .hero{display:grid;gap:10px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:#eef4ff;color:var(--pri);padding:6px 10px;border-radius:999px;font-size:.9rem}
+    .actions,.toolbar,.symbol-grid,.quick-grid{display:flex;gap:8px;flex-wrap:wrap}
+    button,input,select{font:inherit}
+    .btn{border:none;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:bold}
+    .btn-main{background:#fff;color:#1d4ed8}
+    .btn-soft{background:#eef4ff;color:#1d4ed8;border:1px solid #cfe0ff}
+    .editor{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .toolbar{padding:10px;background:#f8fbff;border-bottom:1px solid var(--line)}
+    .toolbar button,.symbol-btn{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}
+    .doc{min-height:220px;padding:16px;outline:none;line-height:1.6}
+    .doc:empty:before{content:"Digite aqui sua atividade, prova ou planejamento...";color:#94a3b8}
+    .symbol-grid,.quick-grid{margin-top:10px}
+    .symbol-btn{min-width:52px}
+    .result,.status{margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#f8fbff;white-space:pre-wrap}
+    .section-title{margin-bottom:10px;color:var(--pri)}
+    .mini{font-size:.92rem;color:var(--muted)}
+    .print-frame{position:fixed;width:0;height:0;border:0;opacity:0}
+    @media(max-width:900px){main{grid-template-columns:1fr}aside{position:static}}
   </style>
 </head>
 <body>
   <header>
-    <div class="header-wrap">
-      <div class="brand">
-        <h1>Docs de Matemática para Professores</h1>
-        <p>Portal em HTML com conteúdos, fórmulas, atividades, ferramentas e editor tipo docs.</p>
+    <div class="top">
+      <div>
+        <h1>Math Docs Professor</h1>
+        <p>Editor curto, claro e interativo para matemática.</p>
       </div>
-      <div class="top-actions">
-        <button class="btn btn-primary" onclick="salvarPDF()">Salvar caixa em PDF</button>
-        <button class="btn btn-soft" onclick="salvarTexto()">Salvar texto</button>
-        <button class="btn btn-soft" onclick="carregarTexto()">Carregar texto</button>
+      <div class="actions">
+        <button class="btn btn-main" onclick="salvarPDF()">Salvar PDF</button>
+        <button class="btn btn-soft" onclick="salvarTexto()">Salvar</button>
+        <button class="btn btn-soft" onclick="carregarTexto()">Carregar</button>
       </div>
     </div>
   </header>
 
   <main>
-    <aside>
-      <input id="menuSearch" class="search" type="text" placeholder="Buscar seção..." oninput="filtrarMenu()" />
-
-      <div class="nav-title">Conteúdo</div>
-      <div class="nav-list" id="menuList">
-        <a class="nav-link" href="#inicio">Início</a>
-        <a class="nav-link" href="#fundamentos">Fundamentos</a>
-        <a class="nav-link" href="#operacoes">Operações</a>
-        <a class="nav-link" href="#fracoes">Frações</a>
-        <a class="nav-link" href="#potencias">Potências e raízes</a>
-        <a class="nav-link" href="#algebra">Álgebra</a>
-        <a class="nav-link" href="#geometria">Geometria</a>
-        <a class="nav-link" href="#grandezas">Grandezas e medidas</a>
-        <a class="nav-link" href="#estatistica">Estatística e probabilidade</a>
-        <a class="nav-link" href="#planejamento">Planejamento</a>
-        <a class="nav-link" href="#atividades">Atividades prontas</a>
-        <a class="nav-link" href="#avaliacao">Avaliação</a>
-        <a class="nav-link" href="#ferramentas">Ferramentas</a>
-        <a class="nav-link" href="#editor">Editor tipo Docs</a>
+    <aside class="card">
+      <h3 class="section-title">Menu rápido</h3>
+      <div class="menu">
+        <a href="#editor">Editor</a>
+        <a href="#atalhos">Atalhos</a>
+        <a href="#simbolos">Símbolos</a>
+        <a href="#ferramentas">Ferramentas</a>
       </div>
     </aside>
 
-    <section class="content">
-      <section class="hero" id="inicio">
-        <h2>Matemática completa para aula, planejamento e prática docente</h2>
-        <p>Este HTML foi feito para professores que querem um espaço organizado com conteúdos matemáticos, fórmulas essenciais, exemplos, ideias de aula, ferramentas rápidas e um editor para montar atividades e avaliações.</p>
-        <div class="hero-grid">
-          <div class="mini-box"><strong>Ensino Fundamental</strong><br>números, operações, frações, medidas, gráficos.</div>
-          <div class="mini-box"><strong>Ensino Médio</strong><br>álgebra, funções, geometria, estatística.</div>
-          <div class="mini-box"><strong>Ferramentas</strong><br>calculadoras rápidas e geradores.</div>
-          <div class="mini-box"><strong>Editor</strong><br>digitação livre tipo docs/word.</div>
+    <section style="display:grid;gap:16px">
+      <section class="card hero">
+        <h2>Use como um mini docs de matemática</h2>
+        <div class="badges">
+          <span class="badge">10~3 → 10³</span>
+          <span class="badge">Clique nos símbolos</span>
+          <span class="badge">Salvar em PDF</span>
         </div>
+        <p class="mini">Feito para escrever contas, atividades e materiais de aula de forma rápida.</p>
       </section>
 
-      <section class="content-card" id="fundamentos">
-        <h3>1. Fundamentos da Matemática</h3>
-        <div class="tag-row">
-          <span class="tag">Números naturais</span>
-          <span class="tag">Inteiros</span>
-          <span class="tag">Racionais</span>
-          <span class="tag">Reais</span>
-        </div>
-        <div class="two-col">
-          <div class="box">
-            <h4>Conjuntos numéricos</h4>
-            <ul>
-              <li><strong>Naturais (N):</strong> 0, 1, 2, 3...</li>
-              <li><strong>Inteiros (Z):</strong> ... -3, -2, -1, 0, 1, 2 ...</li>
-              <li><strong>Racionais (Q):</strong> frações e decimais exatos/periódicos.</li>
-              <li><strong>Irracionais:</strong> √2, π...</li>
-              <li><strong>Reais (R):</strong> união dos racionais e irracionais.</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Objetivos em aula</h4>
-            <ul>
-              <li>Ler, escrever e comparar números.</li>
-              <li>Identificar padrões e regularidades.</li>
-              <li>Resolver problemas do cotidiano.</li>
-              <li>Relacionar cálculo com interpretação.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="operacoes">
-        <h3>2. Operações básicas</h3>
-        <div class="three-col">
-          <div class="box">
-            <h4>Adição</h4>
-            <p>Juntar quantidades.</p>
-            <div class="formula">a + b = c</div>
-          </div>
-          <div class="box">
-            <h4>Subtração</h4>
-            <p>Retirar ou comparar.</p>
-            <div class="formula">a - b = c</div>
-          </div>
-          <div class="box">
-            <h4>Multiplicação</h4>
-            <p>Adição de parcelas iguais.</p>
-            <div class="formula">a × b = c</div>
-          </div>
-          <div class="box">
-            <h4>Divisão</h4>
-            <p>Repartição ou medida.</p>
-            <div class="formula">a ÷ b = c</div>
-          </div>
-          <div class="box">
-            <h4>Ordem das operações</h4>
-            <p>Parênteses, potências/raízes, multiplicação/divisão, adição/subtração.</p>
-          </div>
-          <div class="box">
-            <h4>Exemplo</h4>
-            <div class="formula">8 + 2 × 3 = 8 + 6 = 14</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="fracoes">
-        <h3>3. Frações</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Conceitos</h4>
-            <ul>
-              <li>Numerador: partes consideradas.</li>
-              <li>Denominador: total de partes iguais.</li>
-              <li>Frações equivalentes representam o mesmo valor.</li>
-              <li>Frações podem ser próprias, impróprias e aparentes.</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Operações com frações</h4>
-            <div class="formula">a/b + c/b = (a+c)/b
-
-a/b × c/d = ac/bd
-
-a/b ÷ c/d = a/b × d/c</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="potencias">
-        <h3>4. Potências e raízes</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Potenciação</h4>
-            <div class="formula">aⁿ = a × a × a × ... (n vezes)</div>
-            <ul>
-              <li><strong>Potência negativa:</strong> a⁻ⁿ = 1 / aⁿ</li>
-              <li><strong>Potência zero:</strong> a⁰ = 1, com a ≠ 0</li>
-              <li><strong>Produto de potências:</strong> aᵐ · aⁿ = aᵐ⁺ⁿ</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Radiciação</h4>
-            <div class="formula">√a = b, se b² = a
-ⁿ√a = b, se bⁿ = a</div>
-            <ul>
-              <li>Raiz quadrada: índice 2.</li>
-              <li>Raiz cúbica: índice 3.</li>
-              <li>Relacionar raiz e potência inversa.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="algebra">
-        <h3>5. Álgebra</h3>
-        <div class="three-col">
-          <div class="box">
-            <h4>Expressões algébricas</h4>
-            <p>Uso de letras para representar valores desconhecidos ou variáveis.</p>
-            <div class="formula">2x + 3</div>
-          </div>
-          <div class="box">
-            <h4>Equação do 1º grau</h4>
-            <div class="formula">ax + b = 0</div>
-            <p>Exemplo: 2x + 4 = 0 → x = -2</p>
-          </div>
-          <div class="box">
-            <h4>Equação do 2º grau</h4>
-            <div class="formula">ax² + bx + c = 0
-x = (-b ± √(b² - 4ac)) / 2a</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="geometria">
-        <h3>6. Geometria</h3>
-        <div class="three-col">
-          <div class="box">
-            <h4>Formas planas</h4>
-            <ul>
-              <li>Triângulo</li>
-              <li>Quadrado</li>
-              <li>Retângulo</li>
-              <li>Círculo</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Perímetro e área</h4>
-            <div class="formula">Quadrado: A = l²
-Retângulo: A = b × h
-Triângulo: A = (b × h) / 2
-Círculo: A = πr²</div>
-          </div>
-          <div class="box">
-            <h4>Volume</h4>
-            <div class="formula">Cubo: V = a³
-Paralelepípedo: V = c × l × h</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="grandezas">
-        <h3>7. Grandezas e medidas</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Unidades importantes</h4>
-            <ul>
-              <li>Comprimento: mm, cm, m, km</li>
-              <li>Massa: mg, g, kg</li>
-              <li>Capacidade: mL, L</li>
-              <li>Tempo: s, min, h</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Conversões</h4>
-            <div class="formula">1 m = 100 cm
-1 km = 1000 m
-1 kg = 1000 g
-1 L = 1000 mL</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="estatistica">
-        <h3>8. Estatística e probabilidade</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Estatística</h4>
-            <ul>
-              <li>Média aritmética</li>
-              <li>Moda</li>
-              <li>Mediana</li>
-              <li>Leitura de tabelas e gráficos</li>
-            </ul>
-            <div class="formula">média = soma dos valores / quantidade</div>
-          </div>
-          <div class="box">
-            <h4>Probabilidade</h4>
-            <div class="formula">P(A) = casos favoráveis / casos possíveis</div>
-            <p>Exemplo: chance de sair número par em um dado = 3/6 = 1/2</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="planejamento">
-        <h3>9. Planejamento de aula</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Estrutura sugerida</h4>
-            <ul>
-              <li>Objetivo da aula</li>
-              <li>Habilidade trabalhada</li>
-              <li>Conteúdo</li>
-              <li>Metodologia</li>
-              <li>Atividade prática</li>
-              <li>Avaliação</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Exemplo rápido</h4>
-            <p><strong>Tema:</strong> Frações equivalentes</p>
-            <p><strong>Objetivo:</strong> Identificar frações equivalentes em situações concretas.</p>
-            <p><strong>Metodologia:</strong> dobraduras, desenhos e resolução de desafios.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="atividades">
-        <h3>10. Atividades prontas</h3>
-        <div class="three-col">
-          <div class="box">
-            <h4>Desafio 1</h4>
-            <p>João tinha 24 figurinhas e ganhou mais 18. Quantas ele tem agora?</p>
-          </div>
-          <div class="box">
-            <h4>Desafio 2</h4>
-            <p>Represente 3/4 com desenho e escreva uma fração equivalente.</p>
-          </div>
-          <div class="box">
-            <h4>Desafio 3</h4>
-            <p>Calcule a área de um retângulo de 8 cm por 5 cm.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="avaliacao">
-        <h3>11. Avaliação</h3>
-        <div class="two-col">
-          <div class="box">
-            <h4>Critérios</h4>
-            <ul>
-              <li>Compreensão do conceito</li>
-              <li>Uso correto da linguagem matemática</li>
-              <li>Resolução de problemas</li>
-              <li>Estratégias utilizadas</li>
-            </ul>
-          </div>
-          <div class="box">
-            <h4>Instrumentos</h4>
-            <ul>
-              <li>Lista de exercícios</li>
-              <li>Atividade em grupo</li>
-              <li>Autoavaliação</li>
-              <li>Produção no caderno / editor</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="ferramentas">
-        <h3>12. Ferramentas de Matemática</h3>
-        <div class="tool-grid">
-          <div class="tool-card">
-            <h4>Calculadora básica</h4>
-            <input id="expr" type="text" placeholder="Ex.: (8+2)*5 - 4/2" />
-            <button class="btn btn-primary" onclick="calcularExpressao()">Calcular</button>
-            <div class="result" id="calcResult">Resultado aparecerá aqui.</div>
-          </div>
-
-          <div class="tool-card">
-            <h4>Potência</h4>
-            <input id="base" type="number" placeholder="Base" />
-            <input id="expoente" type="number" placeholder="Expoente (aceita negativo)" />
-            <button class="btn btn-primary" onclick="calcularPotencia()">Calcular potência</button>
-            <div class="result" id="potResult">Resultado da potência.</div>
-          </div>
-
-          <div class="tool-card">
-            <h4>Gerador de tabuadas</h4>
-            <input id="tabuadaNum" type="number" placeholder="Digite um número" />
-            <button class="btn btn-primary" onclick="gerarTabuada()">Gerar tabuada</button>
-            <div class="result" id="tabuadaResult">A tabuada será exibida aqui.</div>
-          </div>
-
-          <div class="tool-card">
-            <h4>Média de notas</h4>
-            <input id="notas" type="text" placeholder="Ex.: 7, 8.5, 9, 6" />
-            <button class="btn btn-primary" onclick="calcularMedia()">Calcular média</button>
-            <div class="result" id="mediaResult">A média sairá aqui.</div>
-          </div>
-
-          <div class="tool-card">
-            <h4>Gerador de questões</h4>
-            <select id="tipoQuestao">
-              <option value="adicao">Adição</option>
-              <option value="subtracao">Subtração</option>
-              <option value="multiplicacao">Multiplicação</option>
-              <option value="divisao">Divisão</option>
-            </select>
-            <button class="btn btn-primary" onclick="gerarQuestoes()">Gerar 5 questões</button>
-            <div class="result" id="questoesResult">As questões serão geradas aqui.</div>
-          </div>
-
-          <div class="tool-card">
-            <h4>Símbolos matemáticos</h4>
-            <div class="result">+
-−
-×
-·  (ponto para multiplicação)
-:  (divisão estilo razão)
-÷  (divisão)
-=
-≠
-≈
-<
->
-≤
-≥
-±
-∞
-π
-√
-∑
-∆
-∫
-°
-%
-½
-¼
-¾
-x²
-x³
-xⁿ
-x⁻¹</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-card" id="editor">
-        <h3>13. Editor tipo Docs / Word</h3>
-        <p><span class="badge-ok">Pronto:</span> você pode digitar, formatar, salvar no navegador e usar como bloco de planejamento, avaliação, roteiro de aula ou atividade.</p>
+      <section class="card" id="editor">
+        <h3 class="section-title">Editor</h3>
         <div class="editor">
-          <div class="editor-toolbar">
-            <button type="button" onclick="formatar('bold')"><strong>Negrito</strong></button>
-            <button type="button" onclick="formatar('italic')"><em>Itálico</em></button>
-            <button type="button" onclick="formatar('underline')"><u>Sublinhado</u></button>
+          <div class="toolbar">
+            <button type="button" onclick="formatar('bold')">Negrito</button>
+            <button type="button" onclick="formatar('italic')">Itálico</button>
+            <button type="button" onclick="formatar('underline')">Sublinhar</button>
             <button type="button" onclick="formatar('insertUnorderedList')">Lista</button>
-            <button type="button" onclick="formatar('justifyLeft')">Esquerda</button>
-            <button type="button" onclick="formatar('justifyCenter')">Centro</button>
-            <button type="button" onclick="formatar('justifyRight')">Direita</button>
-            <button type="button" onclick="formatar('superscript')">~ expoente</button>
-            <button type="button" onclick="inserirSimbolo('²')">x²</button>
-            <button type="button" onclick="inserirSimbolo('³')">x³</button>
-            <button type="button" onclick="inserirSimbolo('⁻¹')">x⁻¹</button>
-            <button type="button" onclick="inserirSimbolo('√')">√</button>
-            <button type="button" onclick="inserirSimbolo('π')">π</button>
-            <button type="button" onclick="inserirSimbolo('≤')">≤</button>
-            <button type="button" onclick="inserirSimbolo('≥')">≥</button>
-            <button type="button" onclick="inserirSimbolo('≠')">≠</button>
+            <button type="button" onclick="formatar('superscript')">Expoente</button>
+            <button type="button" onclick="limparEditor()">Limpar</button>
           </div>
-          <div id="docArea" class="doc-area" contenteditable="true"></div>
+          <div id="docArea" class="doc" contenteditable="true"></div>
         </div>
-        <div id="statusBox" class="status" aria-live="polite"></div>
-        <div id="testResults" class="tests"></div>
-        <p class="badge-warn">Dica: ao clicar em “Salvar caixa em PDF”, abre a impressão apenas do texto da caixa. Depois escolha “Salvar como PDF”.</p>
+        <div id="statusBox" class="status">Pronto para digitar.</div>
+      </section>
+
+      <section class="card" id="atalhos">
+        <h3 class="section-title">Atalhos</h3>
+        <div class="quick-grid">
+          <button class="symbol-btn" onclick="inserirNoEditor('²')">x²</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('³')">x³</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('ⁿ')">xⁿ</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('√')">√</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('π')">π</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('⁻¹')">x⁻¹</button>
+        </div>
+        <div class="result">Digite assim: 2~5, 10~3, 10~-1</div>
+      </section>
+
+      <section class="card" id="simbolos">
+        <h3 class="section-title">Símbolos clicáveis</h3>
+        <div class="symbol-grid">
+          <button class="symbol-btn" onclick="inserirNoEditor('+')">+</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('−')">−</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('×')">×</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('·')">·</button>
+          <button class="symbol-btn" onclick="inserirNoEditor(':')">:</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('÷')">÷</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('=')">=</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('≠')">≠</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('<')">&lt;</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('>')">&gt;</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('≤')">≤</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('≥')">≥</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('%')">%</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('½')">½</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('¼')">¼</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('¾')">¾</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('∞')">∞</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('∑')">∑</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('∆')">∆</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('∫')">∫</button>
+          <button class="symbol-btn" onclick="inserirNoEditor('°')">°</button>
+        </div>
+      </section>
+
+      <section class="card" id="ferramentas">
+        <h3 class="section-title">Ferramentas rápidas</h3>
+        <div class="quick-grid">
+          <input id="expr" type="text" placeholder="Ex.: 8+2*3" style="flex:1;min-width:180px;padding:10px;border:1px solid var(--line);border-radius:10px">
+          <button class="btn btn-soft" onclick="calcularExpressao()">Calcular</button>
+        </div>
+        <div id="calcResult" class="result">Resultado aparecerá aqui.</div>
       </section>
     </section>
   </main>
-
-  <footer>
-    HTML educacional de matemática para professores. Pode ser expandido com BNCC, plano de aula por série, jogos, simulados e mais calculadoras.
-  </footer>
 
   <iframe id="printFrame" class="print-frame" title="Área de impressão"></iframe>
 
   <script>
     const STORAGE_KEY = 'docsMatematicaProfessor_caixaTexto';
-    const supMap = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' };
+    const supMap = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
 
-    function exibirStatus(mensagem, tipo) {
-      const box = document.getElementById('statusBox');
-      box.textContent = mensagem;
-      box.className = 'status show ' + (tipo || 'success');
+    function status(msg){ document.getElementById('statusBox').textContent = msg; }
+    function formatar(cmd){ document.execCommand(cmd,false,null); }
+    function inserirSimbolo(simbolo){ document.execCommand('insertText', false, simbolo); }
+    function focarEditor(){ const a=document.getElementById('docArea'); a.focus(); return a; }
+    function inserirNoEditor(simbolo){ focarEditor(); inserirSimbolo(simbolo); normalizarEditor(); }
+    function limparEditor(){ document.getElementById('docArea').innerHTML=''; status('Editor limpo.'); }
+
+    function convertTildeExponents(texto){
+      return String(texto).replace(/(\d+)~(-?\d+)/g, (_,base,exp)=> base + String(exp).split('').map(c=>supMap[c]||c).join(''));
     }
 
-    function filtrarMenu() {
-      const termo = document.getElementById('menuSearch').value.toLowerCase();
-      const links = document.querySelectorAll('#menuList .nav-link');
-      links.forEach(link => {
-        link.style.display = link.textContent.toLowerCase().includes(termo) ? 'block' : 'none';
-      });
+    function posicionarCursorNoFim(el){
+      const range=document.createRange(); const sel=window.getSelection();
+      range.selectNodeContents(el); range.collapse(false); sel.removeAllRanges(); sel.addRange(range);
     }
 
-    function calcularExpressao() {
-      const expr = document.getElementById('expr').value.trim();
-      const out = document.getElementById('calcResult');
-      try {
-        if (!/^[0-9+\-*/().,\s]+$/.test(expr)) throw new Error('Expressão inválida.');
-        const limpa = expr.replace(/,/g, '.');
-        const resultado = Function('return (' + limpa + ')')();
-        out.textContent = 'Resultado: ' + resultado;
-      } catch (e) {
-        out.textContent = 'Erro: digite uma expressão matemática válida.';
-      }
+    function normalizarEditor(){
+      const area=document.getElementById('docArea');
+      const original=area.innerText; const convertido=convertTildeExponents(original);
+      if(original!==convertido){ area.innerText=convertido; posicionarCursorNoFim(area); status('Expoente convertido automaticamente.'); }
     }
 
-    function calcularPotencia() {
-      const base = parseFloat(document.getElementById('base').value);
-      const expoente = parseFloat(document.getElementById('expoente').value);
-      const out = document.getElementById('potResult');
-      if (Number.isNaN(base) || Number.isNaN(expoente)) {
-        out.textContent = 'Digite a base e o expoente.';
-        return;
-      }
-      out.textContent = `${base} elevado a ${expoente} = ${Math.pow(base, expoente)}`;
+    function salvarTexto(){
+      localStorage.setItem(STORAGE_KEY, document.getElementById('docArea').innerHTML);
+      status('Texto salvo.');
     }
 
-    function gerarTabuada() {
-      const n = parseFloat(document.getElementById('tabuadaNum').value);
-      const out = document.getElementById('tabuadaResult');
-      if (Number.isNaN(n)) {
-        out.textContent = 'Digite um número.';
-        return;
-      }
-      let txt = '';
-      for (let i = 1; i <= 10; i++) {
-        txt += `${n} × ${i} = ${n * i}\n`;
-      }
-      out.textContent = txt;
+    function carregarTexto(){
+      const texto=localStorage.getItem(STORAGE_KEY) || '';
+      document.getElementById('docArea').innerHTML = texto;
+      status(texto ? 'Texto carregado.' : 'Nenhum texto salvo.');
     }
 
-    function calcularMedia() {
-      const texto = document.getElementById('notas').value;
-      const out = document.getElementById('mediaResult');
-      const nums = texto.split(',').map(n => parseFloat(n.trim())).filter(n => !Number.isNaN(n));
-      if (!nums.length) {
-        out.textContent = 'Digite notas separadas por vírgula.';
-        return;
-      }
-      const media = nums.reduce((a, b) => a + b, 0) / nums.length;
-      out.textContent = `Média = ${media.toFixed(2)}`;
+    function calcularExpressao(){
+      const expr=document.getElementById('expr').value.trim(); const out=document.getElementById('calcResult');
+      try{
+        if(!/^[0-9+\-*/().,\s]+$/.test(expr)) throw new Error();
+        out.textContent='Resultado: '+ Function('return ('+ expr.replace(/,/g,'.') +')')();
+      }catch{ out.textContent='Erro: expressão inválida.'; }
     }
 
-    function gerarQuestoes() {
-      const tipo = document.getElementById('tipoQuestao').value;
-      const out = document.getElementById('questoesResult');
-      let questoes = '';
-      for (let i = 1; i <= 5; i++) {
-        const a = Math.floor(Math.random() * 20) + 1;
-        const b = Math.floor(Math.random() * 20) + 1;
-        if (tipo === 'adicao') questoes += `${i}) ${a} + ${b} = ?\n`;
-        if (tipo === 'subtracao') questoes += `${i}) ${a + b} - ${b} = ?\n`;
-        if (tipo === 'multiplicacao') questoes += `${i}) ${a} × ${b} = ?\n`;
-        if (tipo === 'divisao') questoes += `${i}) ${(a * b)} ÷ ${a} = ?\n`;
-      }
-      out.textContent = questoes;
+    function criarDocumentoDeImpressao(conteudo){
+      return `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Documento Matemática</title><style>@page{size:A4;margin:18mm}body{font-family:Arial;padding:0;line-height:1.6}h1{font-size:24px}</style></head><body><h1>Documento de Matemática</h1><div>${conteudo || '<p></p>'}</div></body></html>`;
     }
 
-    function formatar(cmd) {
-      document.execCommand(cmd, false, null);
+    function salvarPDF(){
+      const conteudo=document.getElementById('docArea').innerHTML.trim();
+      if(!conteudo){ status('Digite algo antes de salvar em PDF.'); return; }
+      const frame=document.getElementById('printFrame');
+      const doc=frame.contentDocument || frame.contentWindow.document;
+      frame.onload=function(){ try{ frame.contentWindow.focus(); frame.contentWindow.print(); status('Escolha Salvar como PDF.'); }catch{ status('Não foi possível abrir a impressão.'); } };
+      doc.open(); doc.write(criarDocumentoDeImpressao(conteudo)); doc.close();
     }
 
-    function inserirSimbolo(simbolo) {
-      document.execCommand('insertText', false, simbolo);
+    function runTests(){
+      console.assert(convertTildeExponents('10~3')==='10³','teste 1 falhou');
+      console.assert(convertTildeExponents('10~-1')==='10⁻¹','teste 2 falhou');
+      console.assert(convertTildeExponents('abc')==='abc','teste 3 falhou');
     }
 
-    function looksLikeWholePage(texto) {
-      if (!texto) return false;
-      const textoLimpo = texto.toLowerCase();
-      return textoLimpo.includes('<!doctype') || textoLimpo.includes('<html') || textoLimpo.includes('<head') || textoLimpo.includes('<body');
-    }
-
-    function salvarTexto() {
-      const conteudo = document.getElementById('docArea').innerHTML;
-      localStorage.setItem(STORAGE_KEY, conteudo);
-      exibirStatus('Texto da caixa salvo no navegador com sucesso.', 'success');
-    }
-
-    function carregarTexto() {
-      const texto = localStorage.getItem(STORAGE_KEY);
-      const area = document.getElementById('docArea');
-
-      if (!texto) {
-        area.innerHTML = '';
-        return;
-      }
-
-      if (looksLikeWholePage(texto)) {
-        area.innerHTML = '';
-        localStorage.removeItem(STORAGE_KEY);
-        exibirStatus('Foi encontrado um salvamento inválido da página inteira. A caixa de texto foi limpa.', 'warning');
-        return;
-      }
-
-      area.innerHTML = texto;
-    }
-
-    function convertTildeExponents(texto) {
-      return String(texto).replace(/(\d+)~(-?\d+)/g, (_, base, exp) => {
-        const sobrescrito = String(exp).split('').map(char => supMap[char] || char).join('');
-        return `${base}${sobrescrito}`;
-      });
-    }
-
-    function normalizarEditor() {
-      const docArea = document.getElementById('docArea');
-      const original = docArea.innerText;
-      const convertido = convertTildeExponents(original);
-
-      if (convertido !== original) {
-        docArea.innerText = convertido;
-        posicionarCursorNoFim(docArea);
-      }
-    }
-
-    function posicionarCursorNoFim(elemento) {
-      const range = document.createRange();
-      const sel = window.getSelection();
-      range.selectNodeContents(elemento);
-      range.collapse(false);
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-
-    function criarDocumentoDeImpressao(conteudo) {
-      return `<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8" />
-<title>Documento Matemática</title>
-<style>
-  @page { size: A4; margin: 18mm; }
-  body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #111827; }
-  h1 { margin: 0 0 18px; font-size: 24px; }
-  .conteudo { white-space: normal; word-break: break-word; }
-</style>
-</head>
-<body>
-  <h1>Documento de Matemática</h1>
-  <div class="conteudo">${conteudo || '<p></p>'}</div>
-</body>
-</html>`;
-    }
-
-    function salvarPDF() {
-      const conteudo = document.getElementById('docArea').innerHTML.trim();
-      if (!conteudo) {
-        exibirStatus('Digite algo na caixa de texto antes de salvar em PDF.', 'warning');
-        return;
-      }
-
-      const frame = document.getElementById('printFrame');
-      const frameDoc = frame.contentDocument || frame.contentWindow.document;
-      const html = criarDocumentoDeImpressao(conteudo);
-
-      frame.onload = function() {
-        try {
-          frame.contentWindow.focus();
-          frame.contentWindow.print();
-          exibirStatus('A janela de impressão foi aberta com somente a caixa de texto. Escolha “Salvar como PDF”.', 'success');
-        } catch (erro) {
-          console.error(erro);
-          exibirStatus('Não foi possível abrir a impressão do PDF neste ambiente.', 'error');
-        }
-      };
-
-      frameDoc.open();
-      frameDoc.write(html);
-      frameDoc.close();
-    }
-
-    function runTests() {
-      const resultados = [];
-
-      function assertEqual(nome, atual, esperado) {
-        const passou = atual === esperado;
-        resultados.push(`${passou ? '✅' : '❌'} ${nome}` + (passou ? '' : `\n   esperado: ${esperado}\n   atual: ${atual}`));
-      }
-
-      assertEqual('10~3 vira 10³', convertTildeExponents('10~3'), '10³');
-      assertEqual('10~-1 vira 10⁻¹', convertTildeExponents('10~-1'), '10⁻¹');
-      assertEqual('texto sem expoente fica igual', convertTildeExponents('abc'), 'abc');
-      assertEqual('detecta página inteira', String(looksLikeWholePage('<html><body>x</body></html>')), 'true');
-      assertEqual('não detecta texto comum como página inteira', String(looksLikeWholePage('<p>atividade</p>')), 'false');
-      assertEqual('documento de impressão contém título', String(criarDocumentoDeImpressao('<p>Oi</p>').includes('Documento de Matemática')), 'true');
-
-      document.getElementById('testResults').textContent = 'Testes internos:\n' + resultados.join('\n');
-    }
-
+    document.getElementById('docArea').addEventListener('input', normalizarEditor);
     carregarTexto();
     runTests();
-
-    const docArea = document.getElementById('docArea');
-    docArea.addEventListener('input', normalizarEditor);
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('section[id]').forEach(sec => observer.observe(sec));
   </script>
 </body>
 </html>
